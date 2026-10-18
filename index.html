@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mr Rans Shito Sales</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div><h1>Mr Rans</h1><small>TASTY SHITO · SALES MANAGER</small></div>
+  <div style="display:flex;gap:.5rem;align-items:center">
+    <label style="color:#fff;margin:0">Day</label>
+    <input type="date" id="day" style="width:auto">
+    <button class="gold" id="theme" aria-label="Toggle theme">🌙</button>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>New Shito Sale</h2>
+    <div class="row">
+      <div><label>Customer name</label><input id="cname" placeholder="Optional"></div>
+      <div><label>Contact</label><input id="ccontact" inputmode="tel" placeholder="Optional"></div>
+      <div><label>Item</label>
+        <select id="item">
+          <option value="Shito (Small jar)|20">Shito (Small jar)</option>
+          <option value="Shito (Medium jar)|40">Shito (Medium jar)</option>
+          <option value="Shito (Large jar)|70">Shito (Large jar)</option>
+        </select></div>
+      <div><label>Rate (GH₵)</label><input id="rate" type="number" min="0" step="0.5"></div>
+      <div><label>Qty</label><input id="qty" type="number" min="1" value="1"></div>
+      <div><label>Payment type</label>
+        <select id="pay"><option>CASH</option><option>MOMO</option><option>CARD</option><option>CREDIT</option></select></div>
+      <div><label>Amount paid (GH₵)</label><input id="paid" type="number" min="0" step="0.5"></div>
+      <div><label>Cashier</label><input id="cashier" placeholder="Your name"></div>
+    </div>
+    <div style="margin-top:.7rem"><label>Note</label><input id="note" placeholder="Optional"></div>
+    <div class="tot">
+      <div>Amount: <b>GH₵ <span id="amt">0.00</span></b> &nbsp; Balance: <b id="bal">0.00</b></div>
+      <button class="primary" id="save">Save Sale &amp; Receipt</button>
+    </div>
+    <div id="msg" role="status"></div>
+  </section>
+
+  <section class="card printable" id="report">
+    <h2>End of Day Summary · <span id="dlabel"></span></h2>
+    <div class="stats">
+      <div class="stat"><span>Customers</span><b id="s-n">0</b></div>
+      <div class="stat"><span>Jars sold</span><b id="s-q">0</b></div>
+      <div class="stat big"><span>Total sold (GH₵)</span><b id="s-t">0.00</b></div>
+      <div class="stat"><span>Collected (GH₵)</span><b id="s-p">0.00</b></div>
+      <div class="stat"><span>Owing (GH₵)</span><b id="s-b">0.00</b></div>
+    </div>
+    <p id="s-pay" style="margin:.7rem 0;color:var(--muted);font-size:.9rem"></p>
+    <h2 style="margin-top:.8rem">Buyers</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>#</th><th>Time</th><th>Customer</th><th>Item</th><th class="n">Qty</th><th class="n">Amount</th><th class="n">Paid</th><th>Pay</th><th class="n">Bal</th><th></th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p id="empty" style="color:var(--muted);padding:.6rem">No sales recorded for this day yet.</p>
+    <div class="mbtns" style="justify-content:flex-start;margin-top:.8rem">
+      <button class="gold" id="print">Print Day Report</button>
+      <button class="ghost" id="csv">Download CSV</button>
+    </div>
+  </section>
+</main>
+
+<div id="modal"><div>
+  <div class="receipt printable" id="rcpt"></div>
+  <div class="mbtns"><button class="gold" id="rprint">Print</button><button class="ghost" style="background:#fff" id="rclose">Close</button></div>
+</div></div>
+
+<script src="script.js">
+</script>
+</body>
+</html>
